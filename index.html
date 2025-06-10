@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeShop</title>
-    <link rel = "stylesheet" href ="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HomeShop</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>HomeShop<h1>
+    <h2>Catalogo Prodotti per la Casa</h2>
+    <div id="cart">
+      🛒 Carrello: <span id="cart-count">0</span> articoli - Totale: €<span id="cart-total">0.00</span>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main id="product-grid"></main>
+
+  <script src="script.js"></script>
 </body>
 </html>
