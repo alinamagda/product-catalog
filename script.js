@@ -1,4 +1,4 @@
-/ Array di oggetti che rappresentano i prodotti disponibili
+// Array di oggetti che rappresentano i prodotti disponibili
 const products = [
     { id: 1, name: "Divano Moderno", price: 799.99, image: "https://placehold.co/150x150/CCE5FF/0056B3?text=Divano" },
     { id: 2, name: "Tavolo da Pranzo", price: 349.50, image: "https://placehold.co/150x150/B3E0FF/0056B3?text=Tavolo" },
