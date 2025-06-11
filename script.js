@@ -31,7 +31,7 @@ const products = [
   { id: 21, name: "Libreria modulare", price: 99.00, image: "assets/libreria.webp", category: "Arredo ufficio" },
   { id: 22, name: "Sedia ergonomica", price: 89.90, image: "assets/sedia.webp", category: "Arredo ufficio" },
   { id: 23, name: "Cassettiera compatta", price: 49.90, image: "assets/cassettiera.webp", category: "Arredo ufficio" },
-  { id: 24, name: "Agenda", price: 17.50, image: "assets/agenda.webp", category: "Arredo ufficio" },
+  { id: 24, name: "Scrivania", price: 17.50, image: "assets/scrivania.webp", category: "Arredo ufficio" },
   { id: 25, name: "Sgabello", price: 34.99, image: "assets/sgabello.webp", category: "Arredo ufficio" }
 ];
 
@@ -101,11 +101,11 @@ function removeFromCart(productId) {
 
 function updateQuantity(productId, qty) {
   const quantity = parseInt(qty);
-  if (quantity <= 0) {
-    removeFromCart(productId);
-  } else {
-    cart[productId].quantity = quantity;
-  }
+  if (isNaN(quantity) || quantity <= 0) {
+  removeFromCart(productId);
+} else {
+  cart[productId].quantity = quantity;
+}
   updateCartUI();
 }
 
