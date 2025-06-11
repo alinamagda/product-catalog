@@ -35,17 +35,23 @@ const products = [
   { id: 25, name: "Sgabello", price: 34.99, image: "assets/sgabello.webp", category: "Arredo ufficio" }
 ];
 
+// Inizializza il carrello e i preferiti
 const cart = {};
 const favorites = new Set();
 
 const productGrid = document.getElementById("product-grid");
 const cartItems = document.getElementById("cart-items");
+const searchInput = document.getElementById("search-input");
+const favoriteCountEls = document.querySelectorAll(".favorite-count");
 
-function showCatalog() {
+function showCatalog(filter = "") {
   const categories = [...new Set(products.map(p => p.category))];
   productGrid.innerHTML = "";
 
   categories.forEach(cat => {
+    const catProducts = products.filter(p => p.category === cat && p.name.toLowerCase().includes(filter.toLowerCase()));
+    if (catProducts.length === 0) return;
+
     const section = document.createElement("section");
     section.className = "category-section";
 
@@ -57,17 +63,17 @@ function showCatalog() {
     const grid = document.createElement("div");
     grid.className = "product-category-grid";
 
-    const catProducts = products.filter(p => p.category === cat);
     catProducts.forEach(product => {
       const div = document.createElement("div");
       div.className = "product";
+      const isFav = favorites.has(product.id);
       div.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <p>€${product.price.toFixed(2)}</p>
         <div class="product-buttons">
           <button onclick="addToCart(${product.id})">Aggiungi al carrello</button>
-          <button class="favorite-btn" onclick="toggleFavorite(${product.id}, this)">♡</button>
+          <button class="favorite-btn" onclick="toggleFavorite(${product.id}, this)">${isFav ? "❤" : "♡"}</button>
         </div>
       `;
       grid.appendChild(div);
@@ -125,8 +131,6 @@ function updateCartUI() {
   }
 
   document.getElementById("empty-cart-message").style.display = totalItems === 0 ? "block" : "none";
-
-  // Aggiorna tutti gli elementi con classe cart-count e cart-total
   document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalItems);
   document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice.toFixed(2));
 }
@@ -139,7 +143,32 @@ function toggleFavorite(productId, button) {
     favorites.add(productId);
     button.textContent = "❤";
   }
+  updateFavoriteCount();
+}
+
+function updateFavoriteCount() {
+  favoriteCountEls.forEach(el => el.textContent = favorites.size);
+}
+
+function clearCart() {
+  for (const key in cart) delete cart[key];
+  updateCartUI();
+}
+
+// EVENT LISTENER RICERCA
+if (searchInput) {
+  searchInput.addEventListener("input", e => {
+    const term = e.target.value;
+    showCatalog(term);
+  });
+}
+
+// EVENT LISTENER SVUOTA CARRELLO
+const clearCartButton = document.getElementById("clear-cart-button");
+if (clearCartButton) {
+  clearCartButton.addEventListener("click", clearCart);
 }
 
 showCatalog();
 updateCartUI();
+updateFavoriteCount();

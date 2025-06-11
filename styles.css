@@ -33,7 +33,6 @@ header h1 {
   font-size: 1.8em;
   margin: 0 20px;
   flex: 1;
-  text-align: center;
   color: #4b4b4b;
 }
 
@@ -51,6 +50,28 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+/*Search bar */
+#search-container {
+  padding: 20px;
+  text-align: center;
+}
+
+#search-input {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+#search-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(170, 140, 100, 0.4);
+  border-color: #c4b79e;
 }
 
 /* Carrello header */
@@ -198,7 +219,7 @@ nav a:hover {
   background-color: #984938;
 }
 
-#checkout-button {
+#checkout-button, #clear-cart-button {
   margin-top: 15px;
   padding: 10px 20px;
   background-color: #5c5247;
