@@ -15,18 +15,22 @@
       <h1>HappyHomeShop</h1>
       <nav>
         <a href="account.html">Il mio account</a> |
-        <a href="preferiti.html">Preferiti</a> |
-        <a href="checkout.html">Checkout</a>
+        <a href="preferiti.html"> Preferiti</a> |
+        <a href="checkout.html" class="cart-summary">
+          🛒 Carrello: <span class="cart-count">0</span> articoli - Totale:
+          €<span class="cart-total">0.00</span>
+        </a>
       </nav>
-      <div class="cart-summary">
-        🛒 Carrello: <span class="cart-count">0</span> articoli - Totale: €<span class="cart-total">0.00</span>
-      </div>
     </header>
 
     <!-- Search Bar -->
-      <div id="search-container">
-        <input type="text" id="search-input" placeholder="Cerca prodotto per nome...">
-      </div>
+    <div id="search-container">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Cerca prodotto per nome..."
+      />
+    </div>
 
     <!-- Main -->
     <main>
@@ -39,11 +43,17 @@
       <div id="cart-items"></div>
       <p id="empty-cart-message">Il carrello è vuoto.</p>
       <p>
-        Totale: <span class="cart-total">0.00</span> €
-        (<span class="cart-count">0</span> articoli)
+        Totale: <span class="cart-total">0.00</span> € (<span class="cart-count"
+          >0</span
+        >
+        articoli)
       </p>
-      <button id="checkout-button">Procedi al Checkout</button>
-      <button id="clear-cart-button">Svuota carrello</button>
+      <a href="checkout.html" id="checkout-button" class="checkout-link">
+        <span style="font-size: 1.2em">&#10003;</span> Procedi al Checkout
+      </a>
+      <button id="clear-cart-button">
+        <span style="font-size: 1.2em">&#128465;</span> Svuota carrello
+      </button>
     </section>
 
     <!-- Footer -->
