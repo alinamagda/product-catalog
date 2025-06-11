@@ -5,18 +5,18 @@ const products = [
   { id: 2, name: "Lampadario classico", price: 89.00, image: "assets/lampadario.webp", category: "Illuminazione" },
   { id: 3, name: "Applique a muro", price: 39.00, image: "assets/applique.webp", category: "Illuminazione" },
   { id: 4, name: "Striscia LED", price: 18.00, image: "assets/striscia_led.webp", category: "Illuminazione" },
-  { id: 5, name: "Faretto da incasso", price: 12.50, image: "assets/faretto.webp", category: "Illuminazione" },
+  { id: 5, name: "Lampada sospesa minimal", price: 44.00, image: "assets/lampada_sospesa.webp", category: "Illuminazione" },
 
   // Tessili
   { id: 6, name: "Tappeto moderno", price: 39.90, image: "assets/tappeto.webp", category: "Tessili" },
   { id: 7, name: "Coperta", price: 22.90, image: "assets/coperta.webp", category: "Tessili" },
   { id: 8, name: "Tenda da finestra", price: 19.50, image: "assets/tenda.webp", category: "Tessili" },
-  { id: 9, name: "Cuscino decorativo", price: 15.00, image: "assets/tessili.webp", category: "Tessili" },
+  { id: 9, name: "Cuscino decorativo", price: 15.00, image: "assets/cuscino.webp", category: "Tessili" },
   { id: 10, name: "Plaid caldo", price: 27.00, image: "assets/plaid.webp", category: "Tessili" },
 
   // Articoli per la tavola
   { id: 11, name: "Set di tazze", price: 12.00, image: "assets/tazze.webp", category: "Articoli per la tavola" },
-  { id: 12, name: "Bicchieri colorati", price: 14.20, image: "assets/bicchieri.webp", category: "Articoli per la tavola" },
+  { id: 12, name: "Bicchieri", price: 14.20, image: "assets/bicchieri.webp", category: "Articoli per la tavola" },
   { id: 13, name: "Servizio piatti", price: 45.00, image: "assets/piatti.webp", category: "Articoli per la tavola" },
   { id: 14, name: "Posate in acciaio", price: 29.99, image: "assets/posate.webp", category: "Articoli per la tavola" },
   { id: 15, name: "Brocca in vetro", price: 16.50, image: "assets/brocca.webp", category: "Articoli per la tavola" },
@@ -32,9 +32,11 @@ const products = [
   { id: 21, name: "Libreria modulare", price: 99.00, image: "assets/libreria.webp", category: "Arredo ufficio" },
   { id: 22, name: "Sedia ergonomica", price: 89.90, image: "assets/sedia.webp", category: "Arredo ufficio" },
   { id: 23, name: "Cassettiera compatta", price: 49.90, image: "assets/cassettiera.webp", category: "Arredo ufficio" },
-  { id: 24, name: "Mensole da parete", price: 25.00, image: "assets/mensole.webp", category: "Arredo ufficio" },
-  { id: 25, name: "Lampada da scrivania", price: 19.99, image: "assets/lampada_scrivania.webp", category: "Arredo ufficio" }
+  { id: 24, name: "Agenda", price: 17.50, image: "assets/agenda.webp", category: "Arredo ufficio" },
+  { id: 25, name: "Sgabello", price: 34.99, image: "assets/sgabello.webp", category: "Arredo ufficio" }
 ];
+
+// Carrello e preferiti
 
 const cart = {};
 const favorites = new Set();
@@ -44,6 +46,7 @@ const cartCount = document.getElementById("cart-count");
 const cartTotal = document.getElementById("cart-total");
 const cartItems = document.getElementById("cart-items");
 
+// Mostra il catalogo prodotti
 function showCatalog() {
   const categories = [...new Set(products.map(p => p.category))];
   productGrid.innerHTML = "";
