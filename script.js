@@ -1,4 +1,3 @@
-// Catalogo prodotti con categoria
 // Catalogo prodotti con categoria e ID ordinati
 const products = [
   { id: 1, name: "Lampada da tavolo", price: 24.99, image: "assets/lampada.webp", category: "Illuminazione" },
