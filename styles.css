@@ -37,7 +37,24 @@ header h1 {
   color: #4b4b4b;
 }
 
-#cart {
+nav {
+  text-align: center;
+  margin: 10px auto;
+  font-size: 1rem;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #5a5a5a;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Carrello header */
+.cart-summary {
   font-size: 1rem;
   margin-left: 20px;
 }
@@ -132,7 +149,7 @@ header h1 {
   color: #a79d87;
 }
 
-/* Carrello */
+/* Carrello sezione */
 #cart-section {
   background-color: #fff;
   padding: 20px;
@@ -181,6 +198,20 @@ header h1 {
   background-color: #984938;
 }
 
+#checkout-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #5c5247;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#checkout-button:hover {
+  background-color: #3e3e3e;
+}
+
 /* Footer */
 footer {
   background-color: #ede8df;
@@ -203,7 +234,7 @@ footer {
     margin: 10px 0;
   }
 
-  #cart {
+  .cart-summary {
     margin-top: 10px;
   }
 }
@@ -223,6 +254,11 @@ footer {
     width: 100%;
     max-width: 60px;
     margin-top: 5px;
+  }
+
+  .product img {
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   #cart-items button {

@@ -1,4 +1,3 @@
-// Catalogo prodotti con categoria
 const products = [
   // Illuminazione
   { id: 1, name: "Lampada da tavolo", price: 24.99, image: "assets/lampada.webp", category: "Illuminazione" },
@@ -36,17 +35,12 @@ const products = [
   { id: 25, name: "Sgabello", price: 34.99, image: "assets/sgabello.webp", category: "Arredo ufficio" }
 ];
 
-// Carrello e preferiti
-
 const cart = {};
 const favorites = new Set();
 
 const productGrid = document.getElementById("product-grid");
-const cartCount = document.getElementById("cart-count");
-const cartTotal = document.getElementById("cart-total");
 const cartItems = document.getElementById("cart-items");
 
-// Mostra il catalogo prodotti
 function showCatalog() {
   const categories = [...new Set(products.map(p => p.category))];
   productGrid.innerHTML = "";
@@ -67,17 +61,15 @@ function showCatalog() {
     catProducts.forEach(product => {
       const div = document.createElement("div");
       div.className = "product";
-
       div.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <p>€${product.price.toFixed(2)}</p>
         <div class="product-buttons">
           <button onclick="addToCart(${product.id})">Aggiungi al carrello</button>
-          <button class="favorite-btn" data-id="${product.id}" onclick="toggleFavorite(${product.id}, this)">♡</button>
+          <button class="favorite-btn" onclick="toggleFavorite(${product.id}, this)">♡</button>
         </div>
       `;
-
       grid.appendChild(div);
     });
 
@@ -88,7 +80,7 @@ function showCatalog() {
 
 function addToCart(productId) {
   if (cart[productId]) {
-    cart[productId].quantity += 1;
+    cart[productId].quantity++;
   } else {
     const product = products.find(p => p.id === productId);
     cart[productId] = { ...product, quantity: 1 };
@@ -101,14 +93,14 @@ function removeFromCart(productId) {
   updateCartUI();
 }
 
-function updateQuantity(productId, newQuantity) {
-  const qty = parseInt(newQuantity);
-  if (qty <= 0) {
+function updateQuantity(productId, qty) {
+  const quantity = parseInt(qty);
+  if (quantity <= 0) {
     removeFromCart(productId);
   } else {
-    cart[productId].quantity = qty;
-    updateCartUI();
+    cart[productId].quantity = quantity;
   }
+  updateCartUI();
 }
 
 function updateCartUI() {
@@ -116,35 +108,38 @@ function updateCartUI() {
   let totalItems = 0;
   let totalPrice = 0;
 
-  Object.values(cart).forEach(item => {
+  for (const id in cart) {
+    const item = cart[id];
     totalItems += item.quantity;
     totalPrice += item.quantity * item.price;
 
-    const itemDiv = document.createElement("div");
-    itemDiv.className = "item";
-    itemDiv.innerHTML = `
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
       <span>${item.name}</span>
       <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${item.id}, this.value)">
       <span>€${(item.price * item.quantity).toFixed(2)}</span>
       <button onclick="removeFromCart(${item.id})">Rimuovi</button>
     `;
-    cartItems.appendChild(itemDiv);
-  });
+    cartItems.appendChild(div);
+  }
 
-  cartCount.textContent = totalItems;
-  cartTotal.textContent = totalPrice.toFixed(2);
+  document.getElementById("empty-cart-message").style.display = totalItems === 0 ? "block" : "none";
+
+  // Aggiorna tutti gli elementi con classe cart-count e cart-total
+  document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalItems);
+  document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice.toFixed(2));
 }
 
 function toggleFavorite(productId, button) {
   if (favorites.has(productId)) {
     favorites.delete(productId);
-    button.classList.remove("favorited");
     button.textContent = "♡";
   } else {
     favorites.add(productId);
-    button.classList.add("favorited");
     button.textContent = "❤";
   }
 }
 
 showCatalog();
+updateCartUI();
