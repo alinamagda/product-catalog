@@ -172,3 +172,20 @@ if (clearCartButton) {
 showCatalog();
 updateCartUI();
 updateFavoriteCount();
+
+const newsletterForm = document.getElementById("newsletter-form");
+const newsletterEmail = document.getElementById("newsletter-email");
+const newsletterMessage = document.getElementById("newsletter-message");
+
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = newsletterEmail.value.trim();
+    if (email && email.includes("@")) {
+      newsletterMessage.textContent = "Grazie per esserti iscritto!";
+      newsletterForm.reset();
+    } else {
+      newsletterMessage.textContent = "Inserisci un indirizzo email valido.";
+    }
+  });
+}
