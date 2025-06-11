@@ -359,3 +359,29 @@ footer {
     font-size: 0.8em;
   }
 }
+
+/* Media query Extra Small */
+@media (max-width: 400px) {
+  #search-input {
+    width: 90%;
+  }
+
+  .product h3 {
+    font-size: 1em;
+  }
+
+  .product p {
+    font-size: 0.9em;
+  }
+
+  #newsletter-email {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  #newsletter-form button {
+    width: 100%;
+    max-width: 150px;
+    margin-top: 10px;
+  }
+}
