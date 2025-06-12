@@ -1,4 +1,4 @@
-clear<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -15,20 +15,28 @@ clear<!DOCTYPE html>
       <nav>
         <a href="index.html">Home</a> |
         <a href="account.html">Il mio account</a> |
-        <a href="preferiti.html">Preferiti</a>
+        <a href="preferiti.html">Preferiti</a> |
+        🛒 <span class="cart-count">0</span> articoli - Totale:
+        €<span class="cart-total">0.00</span>
       </nav>
     </header>
 
-    <main style="padding: 20px">
+    <main style="padding: 20px;">
       <h2>Riepilogo ordine</h2>
+      <section id="cart-items"></section>
+      <p id="empty-cart-message">Il carrello è vuoto.</p>
       <p>
-        Qui apparirà il contenuto del carrello e il totale. (da completare via
-        JavaScript)
+        Totale: <span class="cart-total">0.00</span> € (<span class="cart-count">0</span> articoli)
       </p>
+      <button id="clear-cart-button">
+        <span style="font-size: 1.2em">&#128465;</span> Svuota carrello
+      </button>
     </main>
 
     <footer>
       <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

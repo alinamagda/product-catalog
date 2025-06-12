@@ -41,7 +41,6 @@ const cart = savedCart ? JSON.parse(savedCart) : {};
 const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
 const favorites = new Set(savedFavorites || []);
 
-
 const productGrid = document.getElementById("product-grid");
 const cartItems = document.getElementById("cart-items");
 const searchInput = document.getElementById("search-input");

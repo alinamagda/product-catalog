@@ -15,20 +15,27 @@
       <nav>
         <a href="index.html">Home</a> |
         <a href="account.html">Il mio account</a> |
-        <a href="checkout.html">Checkout</a>
+           <a
+          href="checkout.html"
+          class="cart-summary"
+          aria-label="Carrello"
+          role="button"
+          tabindex="0"
+        >
+          🛒 <span class="cart-count">0</span> articoli - Totale:
+          €<span class="cart-total">0.00</span>
+        </a>
       </nav>
     </header>
 
     <main style="padding: 20px">
       <h2>Preferiti</h2>
-      <p>
-        Questa sezione mostrerà i tuoi prodotti preferiti. Funzionalità da
-        integrare con `localStorage`.
-      </p>
+      <section id="favorites-grid"></section>
     </main>
 
     <footer>
       <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

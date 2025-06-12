@@ -165,7 +165,7 @@ main {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s ease;
 }
 
 .product button:hover {
@@ -182,7 +182,7 @@ main {
 }
 
 .favorite-btn:hover {
-  color: #a79d87;
+  color: #d19410;
 }
 
 /* Carrello sezione */
@@ -343,7 +343,7 @@ footer {
 }
 
 /* Media query Desktop */
-@media screen and (max-width: 1320px) {
+@media (max-width: 1050px) {
   main {
     max-width: 1000px;
   }
