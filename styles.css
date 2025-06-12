@@ -81,6 +81,13 @@ nav a svg {
   border-color: #c4b79e;
 }
 
+/* Main content */
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: 20px auto;
+}
+
 /* Carrello header */
 .cart-summary {
   font-size: 1rem;
@@ -129,6 +136,11 @@ nav a svg {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .product h3 {

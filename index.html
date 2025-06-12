@@ -14,7 +14,7 @@
       </a>
       <h1>HappyHomeShop</h1>
       <nav>
-        <a href="account.html">
+        <a href="account.html" aria-label="Il mio account" role="button" tabindex="0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -26,11 +26,11 @@
               d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
             /></svg>Il mio account</a>
         |
-        <a href="preferiti.html"
+        <a href="preferiti.html" aria-label="Preferiti" role="button" tabindex="0"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="24"
+            height="24"
             fill="#c96"
             viewBox="0 0 24 24"
           >
@@ -38,10 +38,9 @@
               d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.01 4.01 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44h.74C14.09 5.01 15.76 4 17.5 4 19.99 4 22 6.01 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
             />
           </svg>
-          Preferiti <span class="favorite-count">0</span></a
-        >
+          Preferiti <span class="favorite-count">0</span></a>
         |
-        <a href="checkout.html" class="cart-summary">
+        <a href="checkout.html" class="cart-summary" aria-label="Carrello" role="button" tabindex="0">
           🛒 Carrello: <span class="cart-count">0</span> articoli - Totale:
           €<span class="cart-total">0.00</span>
         </a>
@@ -60,7 +59,7 @@
     <!-- Main -->
     <main>
       <section id="product-grid"></section>
-    </main>
+   
 
     <!-- Carrello -->
     <section id="cart-section">
@@ -80,7 +79,7 @@
         <span style="font-size: 1.2em">&#128465;</span> Svuota carrello
       </button>
     </section>
-
+ </main>
     <!-- Footer -->
     <footer>
       <div class="newsletter">

@@ -36,8 +36,11 @@ const products = [
 ];
 
 // Inizializza il carrello e i preferiti
-const cart = {};
-const favorites = new Set();
+const savedCart = localStorage.getItem("cart");
+const cart = savedCart ? JSON.parse(savedCart) : {};
+const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
+const favorites = new Set(savedFavorites || []);
+
 
 const productGrid = document.getElementById("product-grid");
 const cartItems = document.getElementById("cart-items");
@@ -68,7 +71,7 @@ function showCatalog(filter = "") {
       div.className = "product";
       const isFav = favorites.has(product.id);
       div.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
         <h3>${product.name}</h3>
         <p>€${product.price.toFixed(2)}</p>
         <div class="product-buttons">
@@ -133,7 +136,12 @@ function updateCartUI() {
   document.getElementById("empty-cart-message").style.display = totalItems === 0 ? "block" : "none";
   document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalItems);
   document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice.toFixed(2));
+    // Salvataggio nel localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("favorites", JSON.stringify(Array.from(favorites)));
 }
+
+
 
 function toggleFavorite(productId, button) {
   if (favorites.has(productId)) {
@@ -144,15 +152,19 @@ function toggleFavorite(productId, button) {
     button.textContent = "❤";
   }
   updateFavoriteCount();
+// 👉 Salva in localStorage
+  localStorage.setItem("favorites", JSON.stringify([...favorites]));
 }
 
 function updateFavoriteCount() {
   favoriteCountEls.forEach(el => el.textContent = favorites.size);
 }
 
+
 function clearCart() {
   for (const key in cart) delete cart[key];
   updateCartUI();
+  localStorage.removeItem("cart"); // 🧹 pulizia anche nel localStorage
 }
 
 // EVENT LISTENER RICERCA
