@@ -138,7 +138,6 @@ function updateCartUI() {
   document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice.toFixed(2));
     // Salvataggio nel localStorage
   localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("favorites", JSON.stringify(Array.from(favorites)));
 }
 
 
@@ -152,7 +151,7 @@ function toggleFavorite(productId, button) {
     button.textContent = "❤";
   }
   updateFavoriteCount();
-  
+
 // Salva in localStorage
   localStorage.setItem("favorites", JSON.stringify([...favorites]));
 }

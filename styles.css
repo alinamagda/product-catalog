@@ -127,8 +127,9 @@ main {
 }
 
 .product:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+   transition: transform 0.3s ease;
 }
 
 .product img {
@@ -136,11 +137,6 @@ main {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
-}
-
-.product img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
 }
 
 .product h3 {
@@ -277,7 +273,6 @@ footer {
 }
 
 .newsletter {
-  margin-top: 30px;
   padding: 20px;
   background-color: #f5f0e8;
   border-radius: 8px;
@@ -315,7 +310,7 @@ footer {
   background-color: #a79d87;
 }
 
-.newsletter-message {
+#newsletter-message {
   margin-top: 10px;
   color: #4a4a4a;
   font-size: 0.95em;
