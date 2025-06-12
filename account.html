@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Account - HappyHomeShop</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <a href="index.html" id="logo">
-  <img src="assets/logo.webp" alt="Logo HappyHomeShop" />
-</a>
-    <h1>Il mio Account</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="preferiti.html">Preferiti</a> |
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Il mio Account - HappyHomeShop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="index.html" id="logo">
+        <img src="assets/logo.webp" alt="Logo HappyHomeShop" />
+      </a>
+      <h1>Il mio Account</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        |
+        <a href="preferiti.html" aria-label="Preferiti" role="button" tabindex="0">
+          ❤ Preferiti: <span class="favorite-count">0</span>
+        </a>
+        |
+        <a href="checkout.html" class="cart-summary" aria-label="Carrello" role="button" tabindex="0">
+          🛒 <span class="cart-count">0</span> articoli - Totale: €<span class="cart-total">0.00</span>
+        </a>
+      </nav>
+    </header>
 
-  <main style="padding: 20px;">
-    <h2>Benvenuto nel tuo account</h2>
-    <p>Qui potrai gestire i tuoi ordini, dati personali e preferiti (funzionalità da implementare).</p>
-  </main>
+    <!-- Main -->
+    <main style="padding: 20px">
+      <h2>Benvenuto nel tuo account</h2>
+      <p>
+        Qui potrai gestire i tuoi ordini, dati personali e preferiti
+        (funzionalità da implementare).
+      </p>
+    </main>
 
-  <footer>
-    <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
-  </footer>
-</body>
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -4,21 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HappyHomeShop</title>
-    <meta
-      name="description"
-      content="HappyHomeShop è il tuo negozio online di articoli per la casa: illuminazione, tessili, decorazioni e tanto altro."
-    />
-    <meta
-      name="keywords"
-      content="arredamento, casa, illuminazione, tessili, decorazioni, ecommerce"
-    />
-    <!-- Social sharing (Open Graph) -->
-  <meta property="og:title" content="HappyHomeShop" />
-  <meta property="og:description" content="Scopri articoli per la casa, arredamento e idee regalo su HappyHomeShop!" />
-  <meta property="og:image" content="assets/logo.webp" />
-  <meta property="og:url" content="https://www.happyhomeshop.it" />
-  <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="HappyHomeShop è il tuo negozio online di articoli per la casa: illuminazione, tessili, decorazioni e tanto altro." />
+    <meta name="keywords" content="arredamento, casa, illuminazione, tessili, decorazioni, ecommerce" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="HappyHomeShop" />
+    <meta property="og:description" content="Scopri articoli per la casa, arredamento e idee regalo su HappyHomeShop!" />
+    <meta property="og:image" content="assets/logo.webp" />
+    <meta property="og:url" content="https://www.happyhomeshop.it" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- Header -->
@@ -28,66 +22,34 @@
       </a>
       <h1>HappyHomeShop</h1>
       <nav>
-        <a
-          href="account.html"
-          aria-label="Il mio account"
-          role="button"
-          tabindex="0"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="#5a5a5a"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-            /></svg> Il mio account</a>
-        |
-        <a
-          href="preferiti.html"
-          aria-label="Preferiti"
-          role="button"
-          tabindex="0"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="#c96"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.01 4.01 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44h.74C14.09 5.01 15.76 4 17.5 4 19.99 4 22 6.01 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-            />
+        <a href="account.html" aria-label="Il mio account" role="button" tabindex="0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#5a5a5a" viewBox="0 0 24 24">
+            <path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
           </svg>
-          Preferiti: <span class="favorite-count">0</span></a
-        >
+          Il mio account
+        </a>
         |
-        <a
-          href="checkout.html"
-          class="cart-summary"
-          aria-label="Carrello"
-          role="button"
-          tabindex="0"
-        >
-          🛒 <span class="cart-count">0</span> articoli - Totale:
-          €<span class="cart-total">0.00</span>
+        <a href="preferiti.html" aria-label="Preferiti" role="button" tabindex="0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#c96" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.01 4.01 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44h.74C14.09 5.01 15.76 4 17.5 4 19.99 4 22 6.01 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          Preferiti: <span class="favorite-count">0</span>
+        </a>
+        |
+        <a href="checkout.html" class="cart-summary" aria-label="Carrello" role="button" tabindex="0">
+          🛒 <span class="cart-count">0</span> articoli - Totale: €<span class="cart-total">0.00</span>
         </a>
       </nav>
     </header>
 
-    <!-- Search Bar -->
+    <!-- Barra di ricerca -->
     <div id="search-container">
-      <input
-        type="text"
-        id="search-input"
-        placeholder="Cerca prodotto per nome..."
-      />
+      <input type="text" id="search-input" placeholder="Cerca prodotto per nome..." />
     </div>
 
     <!-- Main -->
     <main>
+      <!-- Catalogo prodotti -->
       <section id="product-grid"></section>
 
       <!-- Carrello -->
@@ -96,11 +58,8 @@
         <div id="cart-items"></div>
         <p id="empty-cart-message">Il carrello è vuoto.</p>
         <p>
-          Totale: <span class="cart-total">0.00</span> € (<span
-            class="cart-count"
-            >0</span
-          >
-          articoli)
+          Totale: <span class="cart-total">0.00</span> € (
+          <span class="cart-count">0</span> articoli)
         </p>
         <a href="checkout.html" id="checkout-button" class="checkout-link">
           <span style="font-size: 1.2em">&#10003;</span> Procedi al Checkout
@@ -110,44 +69,33 @@
         </button>
       </section>
     </main>
+
     <!-- Footer -->
     <footer>
       <div class="newsletter">
         <h3>Iscriviti alla newsletter</h3>
         <form id="newsletter-form">
-          <input
-            type="email"
-            id="newsletter-email"
-            placeholder="Inserisci la tua email"
-            required
-          />
+          <input type="email" id="newsletter-email" placeholder="Inserisci la tua email" required />
           <button type="submit">Iscriviti</button>
         </form>
         <p id="newsletter-message"></p>
       </div>
+
       <div class="social-icons">
         <p>Seguici su:</p>
-        <a
-          href="https://www.linkedin.com"
-          target="_blank"
-          aria-label="LinkedIn"
-        >
+        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
           <img src="assets/linkedin.png" alt="LinkedIn" />
         </a>
         <a href="https://twitter.com" target="_blank" aria-label="X">
           <img src="assets/x.png" alt="X" />
         </a>
-        <a
-          href="https://www.instagram.com"
-          target="_blank"
-          aria-label="Instagram"
-        >
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
           <img src="assets/instagram.png" alt="Instagram" />
         </a>
       </div>
 
       <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
-      <p>E-mail: info@happyhomeshop.it | Tel: +39 0123 456789</p>
+      <p>Email: info@happyhomeshop.it | Tel: +39 0123 456789</p>
       <p>icons by Icons8</p>
     </footer>
 

@@ -7,36 +7,49 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <a href="index.html" id="logo">
         <img src="assets/logo.webp" alt="Logo HappyHomeShop" />
       </a>
       <h1>Checkout</h1>
       <nav>
-        <a href="index.html">Home</a> |
-        <a href="account.html">Il mio account</a> |
-        <a href="preferiti.html">Preferiti</a> |
-        🛒 <span class="cart-count">0</span> articoli - Totale:
-        €<span class="cart-total">0.00</span>
+        <a href="index.html">Home</a>
+        |
+        <a href="account.html" aria-label="Il mio account" role="button" tabindex="0">👤 Il mio account</a>
+        |
+        <a href="preferiti.html" aria-label="Preferiti" role="button" tabindex="0">
+          ❤ Preferiti: <span class="favorite-count">0</span>
+        </a>
+        |
+        <a href="checkout.html" class="cart-summary" aria-label="Carrello" role="button" tabindex="0">
+          🛒 <span class="cart-count">0</span> articoli - Totale: €<span class="cart-total">0.00</span>
+        </a>
       </nav>
     </header>
 
-    <main style="padding: 20px;">
-      <h2>Riepilogo ordine</h2>
-      <section id="cart-items"></section>
-      <p id="empty-cart-message">Il carrello è vuoto.</p>
-      <p>
-        Totale: <span class="cart-total">0.00</span> € (<span class="cart-count">0</span> articoli)
-      </p>
-      <button id="clear-cart-button">
-        <span style="font-size: 1.2em">&#128465;</span> Svuota carrello
-      </button>
+    <!-- Main -->
+    <main>
+      <section id="cart-section">
+        <h2>Riepilogo ordine</h2>
+        <div id="cart-items"></div>
+        <p id="empty-cart-message">Il carrello è vuoto.</p>
+        <p>
+          Totale: <span class="cart-total">0.00</span> € (
+          <span class="cart-count">0</span> articoli)
+        </p>
+        <button id="clear-cart-button">
+          <span style="font-size: 1.2em">&#128465;</span> Svuota carrello
+        </button>
+      </section>
     </main>
 
+    <!-- Footer -->
     <footer>
       <p>© 2025 HappyHomeShop S.R.L. - P.IVA 01234567890</p>
     </footer>
 
+    <!-- Script -->
     <script src="script.js"></script>
   </body>
 </html>
