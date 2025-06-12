@@ -152,7 +152,8 @@ function toggleFavorite(productId, button) {
     button.textContent = "❤";
   }
   updateFavoriteCount();
-// 👉 Salva in localStorage
+  
+// Salva in localStorage
   localStorage.setItem("favorites", JSON.stringify([...favorites]));
 }
 
