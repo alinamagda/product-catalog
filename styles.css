@@ -342,6 +342,14 @@ footer {
   transform: scale(1.2);
 }
 
+/* Media query Desktop */
+@media screen and (max-width: 1320px) {
+  main {
+    max-width: 1000px;
+  }
+}
+
+
 /* Media query Tablet */
 @media (max-width: 900px) {
   header {
