@@ -177,6 +177,44 @@ function updateFavoriteCount() {
   favoriteCountEls.forEach(el => (el.textContent = favorites.size));
 }
 
+function renderFavorites() {
+  const favoritesGrid = document.getElementById("favorites-grid");
+  if (!favoritesGrid) return;
+
+  const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  favoritesGrid.innerHTML = "";
+
+  if (savedFavorites.length === 0) {
+    favoritesGrid.innerHTML = "<p>Non hai ancora aggiunto preferiti.</p>";
+    return;
+  }
+
+  const favoriteProducts = products.filter(p => savedFavorites.includes(p.id));
+
+  const grid = document.createElement("div");
+  grid.className = "product-category-grid";
+
+  favoriteProducts.forEach(product => {
+    const div = document.createElement("div");
+    div.className = "product";
+    const isFav = favorites.has(product.id);
+    div.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" loading="lazy">
+      <h3>${product.name}</h3>
+      <p>€${product.price.toFixed(2)}</p>
+      <div class="product-buttons">
+        <button onclick="addToCart(${product.id})">Aggiungi al carrello</button>
+        <button class="favorite-btn" onclick="toggleFavorite(${product.id}, this)">
+          ${isFav ? "❤" : "♡"}
+        </button>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+
+  favoritesGrid.appendChild(grid);
+}
+
 // -------------------
 // EVENTI
 // -------------------
@@ -214,3 +252,7 @@ if (newsletterForm) {
 showCatalog();
 updateCartUI();
 updateFavoriteCount();
+
+if (document.getElementById("favorites-grid")) {
+  renderFavorites();
+}
